@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function in JavaScript</title>
+  </head>
+  <body>
+    <h2>What is function in javascript ?</h2>
+    <p>
+      A function is a reusable block of code that performs a specific task. It can take inputs (parameters), execute a series of statements, and return an output (value).
+    </p>
+    <p>
+      JavaScript functions are fundamental building blocks. They allow you to encapsulate reusable blocks of code, making your programs more organized and efficient.
+    </p>
+
+    <h2>Function Declaration</h2>
+    <ul>
+      <li>This is the traditional way to define a function</li>
+      <li>
+        Functions declared this way are hoisted, meaning they can be called before they are defined in the code.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        function greet(name) {
+          return "Hello, " + name + "!";
+        }
+        
+        console.log(greet("Alice")); // Output: Hello, Alice!
+      </code>
+    </pre>
+
+    <h2>Function Expression</h2>
+    <ul>
+      <li>A function expression assigns a function to a variable</li>
+      <li>Function expressions are not hoisted.</li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        const greet = function(name) {
+          return "Hello, " + name + "!";
+        };
+        
+        console.log(greet("Bob")); // Output: Hello, Bob!
+      </code>
+    </pre>
+
+    <h2>Arrow Functions (ES6)</h2>
+    <ul>
+      <li>A more concise syntax for writing function expressions.</li>
+      <li>
+        Arrow functions do not have their own this context (they inherit this
+        from the surrounding scope).
+      </li>
+      <li>Implicit return for single-expression function.</li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        const greet = (name) => "Hello, " + name + "!"; // Implicit return
+
+        console.log(greet("Charlie")); // Output: Hello, Charlie!
+        
+        const add = (a, b) => { // Explicit return with curly braces
+          const sum = a + b;
+          return sum;
+        };
+        
+        console.log(add(5, 3)); // Output: 8
+      </code>
+    </pre>
+
+    <h2>Function Parameters and Arguments</h2>
+    <ul>
+      <li>Parameters: Variables declared within the function's parentheses.</li>
+      <li>Arguments: Actual values passed to the function when it's called.</li>
+      <li>
+        JavaScript functions can accept any number of arguments, even if fewer parameters are defined.
+      </li>
+      <li>
+        The <mark>arguments</mark> object is available inside non-arrow functions, providing access to all passed arguments. However, using rest parameters is more modern.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code class="language-javascript line-numbers">
+        function sum(a, b) { // a and b are parameters
+          return a + b;
+        }
+        
+        console.log(sum(10, 5)); // 10 and 5 are arguments
+        
+        function logArguments() {
+          for (let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+          }
+        }
+        
+        logArguments(1, 2, "hello", true); // Logs 1, 2, "hello", true
+      </code>
+    </pre>
+
+    <h2>Rest Parameters</h2>
+    <ul>
+      <li>
+        Allow a function to accept an indefinite number of arguments as an array.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code class="language-javascript line-numbers">
+        function sumAll(...numbers) {
+          let total = 0;
+          for (let number of numbers) {
+            total += number;
+          }
+          return total;
+        }
+        
+        console.log(sumAll(1, 2, 3, 4, 5)); // Output: 15
+      </code>
+    </pre>
+    <h2>Default Parameters</h2>
+    <ul>
+      <li>
+        Provide default values for function parameters if no argument is provided.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        function greet(name = "Guest") {
+          return "Hello, " + name + "!";
+        }
+        
+        console.log(greet()); // Output: Hello, Guest!
+        console.log(greet("David")); // Output: Hello, David!
+      </code>
+    </pre>
+
+    <h2>Return Values</h2>
+    <ul>
+      <li>Functions can return values using the return keyword.</li>
+      <li>
+        If a function doesn't have a return statement, it implicitly returns undefined.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        function multiply(a, b) {
+          return a * b;
+        }
+        
+        const result = multiply(3, 4);
+        console.log(result); // Output: 12
+      </code>
+    </pre>
+
+    <h2>Scope</h2>
+    <ul>
+      <li>
+        Variables declared inside a function are local to that function's scope.
+      </li>
+      <li>
+        JavaScript has function scope (variables declared with var) and block scope (variables declared with let or const).
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        function example() {
+          var localVar = "I'm local!";
+          console.log(localVar); // Output: I'm local!
+        }
+        
+        example();
+        console.log(localVar); // Error: localVar is not defined
+      </code> 
+    </pre>
+
+    <h2>Higher-Order Functions</h2>
+    <ul>
+      <li>
+        Functions that operate on other functions, either by taking them as arguments or by returning them.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        function operate(a, b, operation) {
+          return operation(a, b);
+        }
+        
+        function add(x, y) {
+          return x + y;
+        }
+        
+        console.log(operate(5, 2, add)); // Output: 7
+      </code>
+    </pre>
+
+    <h2>Closures</h2>
+    <ul>
+      <li>
+        A closure is a function that remembers the variables from its outer scope even after the outer function has finished executing.
+      </li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        function outerFunction(outerVariable) {
+          return function innerFunction(innerVariable) {
+            console.log(outerVariable + innerVariable);
+          };
+        }
+        
+        const myInnerFunction = outerFunction("Hello, ");
+        myInnerFunction("world!"); // Output: Hello, world!
+      </code>
+    </pre>
+
+    <h2>Anonymous Functions</h2>
+    <ul>
+      <li>Functions without a name, often used as arguments to other functions.</li>
+      <li>Commonly used in callbacks and event handlers.</li>
+    </ul>
+    <pre style="background-color: #f4f4f4; padding: 10px; width: 50%">
+      <code>
+        setTimeout(function() {
+          console.log("This message is delayed by 2 seconds.");
+        }, 2000);
+      </code>
+    </pre>
+    <h2>Conclusion</h2>
+    <p>
+      Functions are a core concept in JavaScript, enabling code reuse and modularity. Understanding how to define, call, and work with functions is essential for effective JavaScript programming.
+    </p>
+    <p>
+      By mastering functions, you can create more organized and maintainable code, making your JavaScript applications more efficient and easier to understand.
+    </p>
+    <p>
+      In the next section, we will explore more advanced topics in JavaScript,including objects, arrays, and asynchronous programming.
+    </p>
+    <h2>Next Steps</h2>
+    <p>
+      To continue your JavaScript learning journey, consider exploring the following topics:
+    </p>
+    <ul>
+      <li><a href="objects.html">Objects</a></li>
+      <li><a href="arrays.html">Arrays</a></li>
+      <li><a href="asynchronous.html">Asynchronous JavaScript</a></li>
+      <li><a href="advanced.html">Advanced JavaScript Concepts</a></li>
+      <li><a href="es6.html">ES6 Features</a></li>
+      <li><a href="ajax.html">AJAX and Fetch API</a></li>
+      <li><a href="events.html">Event Handling</a></li>
+      <li><a href="control-structures.html">Control Structures</a></li>
+      <li><a href="error-handling.html">Error Handling</a></li>
+      <li><a href="testing.html">Testing and Debugging</a></li>
+      <li><a href="performance.html">Performance Optimization</a></li>
+      <li><a href="best-practices.html">Best Practices</a></li>
+    </ul>
+  </body>
+</html>

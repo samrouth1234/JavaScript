@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables and DataType- JavaScript</title>
+  <style>
+    th,td,tr {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Variables and DataType </h2>
+  <p>In JavaScript, variables are used to store data values. You can declare variables using the <strong>var</strong>, <strong>let</strong>, or <strong>const</strong> keywords. Here are some examples:</p>
+  <p>Here are some examples of variables</p>
+  <pre style="background-color: #f4f4f4; padding: 10px; width: 50%;">
+    <code class="language-javascript line-numbers">
+      var name = "John"; // String
+      let age = 30; // Number
+      const isStudent = true; // Boolean
+    </code>
+  </pre>
+  <h2>What are the differences between var, let, and const in JavaScript?</h2>
+  <p>In JavaScript, <strong>var</strong>, <strong>let</strong>, and <strong>const</strong> are used to declare variables, but they have different scopes and behaviors:</p>
+  <ul>
+    <li><strong>var:</strong> Declares a variable that is function-scoped or globally scoped. It can be re-declared and updated.</li>
+    <li><strong>let:</strong> Declares a block-scoped variable that can be updated but not re-declared within the same block.</li>
+    <li><strong>const:</strong> Declares a block-scoped variable that cannot be updated or re-declared. It must be initialized at the time of declaration.</li>
+  </ul>
+  <!-- <iframe src="../asset/images/var.pdf" width="800" height="600"></iframe> -->
+  <!-- <img src="../asset/images/datatype.png" alt="data-type-not-found" style="width: 50%; height: auto; margin: 20px 0;"> -->
+  <table>
+    <thead>
+      <tr>
+        <th>Data Types</th>
+        <th>Re-Declared</th>
+        <th>Reassigned</th>
+        <th>Block Scope</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>var</strong></td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>let</strong></td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><strong>const</strong></td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Here is an example of the differences:</p>
+  <pre style="background-color: #f4f4f4; padding: 10px; width: 50%;">
+    <code class="language-javascript line-numbers">
+      var x = 10;
+      let y = 20;
+      const z = 30;
+
+      if (true) {
+        var x = 40; // Same variable
+        let y = 50; // Different variable
+        // const z = 60; // Error: Identifier 'z' has already been declared
+      }
+
+      console.log(x); // Output: 40
+      console.log(y); // Output: 20
+      console.log(z); // Output: 30
+    </code>
+  </pre>
+
+  <p>JavaScript supports various data types, including:</p>
+  <ul>
+    <li><strong>String:</strong> A sequence of characters, enclosed in quotes.</li>
+    <li><strong>Number:</strong> Numeric values, both integers and floating-point.</li>
+    <li><strong>Boolean:</strong> Represents a true or false value.</li>
+    <li><strong>Object:</strong> A collection of key-value pairs.</li>
+    <li><strong>Array:</strong> An ordered list of values.</li>
+    <li><strong>Null:</strong> Represents an intentional absence of any object value.</li>
+    <li><strong>Undefined:</strong> A variable that has been declared but not assigned a value.</li>
+  </ul>
+  <p>Here is an example of how to declare and use variables in JavaScript:</p>
+  <pre style="background-color: #f4f4f4; padding: 10px; width: 50%;">
+    <code>
+      let firstName = "Alice";
+      let lastName = "Smith";
+      let fullName = firstName + " " + lastName;
+      console.log(fullName); // Output: Alice Smith
+    </code>
+  </pre>
+  <p>In the example above, we declare two string variables <strong>firstName</strong> and <strong>lastName</strong>, and then concatenate them to create a new variable <code>fullName</code>.</p>
+  <p>JavaScript also allows you to perform type conversion, which is the process of converting a value from one data type to another. For example:</p>
+  <pre style="background-color: #f4f4f4; padding: 10px; width: 50%;">
+    <code>
+      let numString = "42";
+      let num = Number(numString); // Convert string to number
+      console.log(num + 1); // Output: 43
+    </code>
+  </pre>
+  <p>In this example, we convert a string to a number using the <strong>Number()</strong> function, allowing us to perform arithmetic operations.</p>
+  <p>Understanding variables and data types is crucial for writing effective JavaScript code. As you continue learning, you'll discover how to manipulate these data types and use them in various programming scenarios.</p>
+  <h2>Naming convention variables in JavaScript</h2>
+  <p>When naming variables in JavaScript, there are some rules and conventions to follow:</p>
+  <ul>
+    <li>Variable names must start with a letter, underscore (_), or dollar sign ($).</li>
+    <li>Variable names can contain letters, numbers, underscores, and dollar signs.</li>
+    <li>Variable names are case-sensitive (e.g., <strong>myVar</strong> and <strong>myvar</strong> are different variables).</li>
+    <li>Avoid using reserved keywords as variable names (e.g., <strong>if</strong>, <strong>else</strong>, <strong>function</strong>, etc.).</li>
+    <li>Use descriptive names that indicate the purpose of the variable (e.g., <strong>userName</strong>, <strong>totalPrice</strong>, etc.).</li>
+    <li>Use camelCase for multi-word variable names (e.g., <strong>firstName</strong>, <strong>lastName</strong>).</li>
+    <li>Keep variable names concise but meaningful.</li>
+    <li>Use <strong>const</strong> for variables that should not be reassigned, and <strong>let</strong> for variables that may change.</li>
+    <li>Use <strong>var</strong> for variables that need to be function-scoped or globally scoped.</li>
+    <li>Use <strong>let</strong> and <strong>const</strong> for block-scoped variables.</li>
+  </ul>
+  <p>Here are some examples of valid variable names:</p>
+  <ul>
+    <li><strong>userName</strong></li>
+    <li><strong>_age</strong></li>
+    <li><strong>$price</strong></li>
+    <li><strong>totalAmount</strong></li>
+    <li><strong>isLoggedIn</strong></li>
+    <li><strong>first_name</strong></li>
+    <li><strong>lastName</strong></li>
+    <li><strong>myArray</strong></li>
+    <li><strong>myObject</strong></li>
+    <li><strong>myFunction</strong></li>
+  </ul>
+  <h2>Conclusion</h2>
+  <p>In this section, we covered the basics of variables and data types in JavaScript. We learned how to declare variables, the different data types available, and how to perform type conversion. These concepts are fundamental to writing JavaScript code and will be essential as you progress in your learning journey.</p>
+  <p>In the next section, we will explore functions and how to create reusable blocks of code in JavaScript.</p>
+  <h2>Next Steps</h2>
+  <p>To continue your JavaScript learning journey, consider exploring the following topics:</p>
+  <ul>
+    <li><a href="functions.html">Functions</a></li>
+    <li><a href="control-structures.html">Control Structures</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="objects.html">Objects</a></li>
+    <li><a href="arrays.html">Arrays</a></li>
+    <li><a href="asynchronous.html">Asynchronous JavaScript</a></li>
+    <li><a href="advanced.html">Advanced JavaScript Concepts</a></li>
+  </ul>
+</body>
+</html>
