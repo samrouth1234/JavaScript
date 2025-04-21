@@ -74,13 +74,13 @@ Connecting fetch() and AbortController requires 3 steps:
 
 ```bash
 
-// Step 1: instantiate the abort controller
+- Step 1: instantiate the abort controller
 const controller = new AbortController();
 
-// Step 2: make the fetch() aware of controller.signal
+- Step 2: make the fetch() aware of controller.signal
 fetch(..., { signal: controller.signal });
 
-// Step 3: call to cancel the request
+- Step 3: call to cancel the request
 controller.abort();
 
 ```
